@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>temDeTudo Ferragem</title>
+    <meta
+      name="description"
+      content="Loja virtual de ferragens, ferramentas, materiais eletricos, hidraulicos e energia solar."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../src/css/main.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <div class="topbar__inner container">
+          <p>Entrega para todo o Brasil</p>
+          <p>Produtos de qualidade</p>
+          <p>Atendimento especializado</p>
+        </div>
+      </header>
+
+      <header class="header">
+        <div class="header__inner container">
+          <a class="brand" href="#home" aria-label="Pagina inicial temDeTudo Ferragem">
+            <span class="brand__roof"></span>
+            <span class="brand__name">
+              <strong>tem</strong><em>De</em><strong>Tudo</strong>
+            </span>
+            <span class="brand__badge">Ferragem</span>
+          </a>
+
+          <form class="search" role="search">
+            <label class="sr-only" for="search-input">Buscar produtos</label>
+            <input
+              id="search-input"
+              name="search-input"
+              type="search"
+              placeholder="O que voce procura hoje?"
+            />
+            <button type="submit">Buscar</button>
+          </form>
+
+          <nav class="header__actions" aria-label="Acoes rapidas">
+            <a href="#admin">Area admin</a>
+            <a href="#conta">Minha conta</a>
+            <a href="#carrinho">Carrinho</a>
+          </nav>
+        </div>
+      </header>
+
+      <nav class="category-nav">
+        <div class="category-nav__inner container">
+          <a href="#categorias">Todas categorias</a>
+          <a href="#ferramentas">Ferramentas</a>
+          <a href="#eletrica">Eletrica</a>
+          <a href="#hidraulica">Hidraulica</a>
+          <a href="#ferragens">Ferragens</a>
+          <a href="#solar">Energia solar</a>
+          <a href="#ofertas" class="highlight-link">Ofertas</a>
+        </div>
+      </nav>
+
+      <main id="home">
+        <section class="hero container">
+          <div class="hero__panel">
+            <p class="eyebrow">Do basico ao profissional</p>
+            <h1>
+              Aqui tem de tudo para sua obra, reforma e instalacao com visual
+              forte e compra segura.
+            </h1>
+            <p class="hero__text">
+              Uma vitrine moderna para ferramentas, materiais eletricos,
+              hidraulicos, ferragens e solucoes em energia solar.
+            </p>
+
+            <div class="hero__actions">
+              <a class="button button--primary" href="#ofertas">Conferir ofertas</a>
+              <a class="button button--secondary" href="#categorias">Explorar categorias</a>
+            </div>
+
+            <ul class="hero__badges" aria-label="Diferenciais da loja">
+              <li>Qualidade garantida</li>
+              <li>Melhores precos</li>
+              <li>Entrega rapida</li>
+              <li>Suporte especializado</li>
+            </ul>
+          </div>
+
+          <div class="hero__visual" aria-hidden="true">
+            <div class="hero-card hero-card--toolbox">
+              <span></span>
+            </div>
+            <div class="hero-card hero-card--drill">
+              <span></span>
+            </div>
+            <div class="hero-card hero-card--solar">
+              <span></span>
+            </div>
+            <div class="hero__price-tag">
+              <small>Frete gratis*</small>
+              <strong>Acima de R$299,00</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="categories container" id="categorias">
+          <div class="section-heading">
+            <p class="eyebrow">Categorias principais</p>
+            <h2>O mix completo para obra, manutencao e energia</h2>
+          </div>
+
+          <div class="categories__grid">
+            <article class="category-card" id="ferramentas">
+              <span class="category-card__icon">01</span>
+              <h3>Ferramentas</h3>
+              <p>Manuais, eletricas e acessorios para uso domestico e profissional.</p>
+            </article>
+            <article class="category-card" id="eletrica">
+              <span class="category-card__icon">02</span>
+              <h3>Eletrica</h3>
+              <p>Cabos, disjuntores, tomadas, luminarias e componentes essenciais.</p>
+            </article>
+            <article class="category-card" id="hidraulica">
+              <span class="category-card__icon">03</span>
+              <h3>Hidraulica</h3>
+              <p>Tubos, registros, conexoes e kits para instalacoes confiaveis.</p>
+            </article>
+            <article class="category-card" id="ferragens">
+              <span class="category-card__icon">04</span>
+              <h3>Ferragens</h3>
+              <p>Fixacao, suportes, dobradicas e itens para acabamento e montagem.</p>
+            </article>
+            <article class="category-card" id="solar">
+              <span class="category-card__icon">05</span>
+              <h3>Energia solar</h3>
+              <p>Paineis, inversores e componentes para projetos on-grid e off-grid.</p>
+            </article>
+            <article class="category-card">
+              <span class="category-card__icon">06</span>
+              <h3>Estacoes de carregamento</h3>
+              <p>Solucoes para mobilidade eletrica e infraestrutura mais moderna.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="offers container" id="ofertas">
+          <div class="section-heading">
+            <p class="eyebrow">Destaques da vitrine</p>
+            <h2>Oferta visual e comercial para puxar conversao logo na home</h2>
+          </div>
+
+          <div class="offers__grid">
+            <article class="product-card product-card--featured">
+              <span class="product-card__tag">Mais buscado</span>
+              <h3>Kit profissional de instalacao</h3>
+              <p>
+                Caixa organizadora, furadeira, cabos e componentes para quem quer
+                agilidade na obra.
+              </p>
+              <strong>R$ 459,90</strong>
+              <button class="button button--primary" type="button">Adicionar ao carrinho</button>
+            </article>
+
+            <article class="product-card">
+              <span class="product-card__tag">Energia solar</span>
+              <h3>Painel monocristalino 550W</h3>
+              <p>Alta eficiencia para projetos residenciais e comerciais.</p>
+              <strong>R$ 1.249,00</strong>
+              <button class="button button--secondary" type="button">Ver detalhes</button>
+            </article>
+
+            <article class="product-card">
+              <span class="product-card__tag">Ferramenta eletrica</span>
+              <h3>Furadeira de impacto 750W</h3>
+              <p>Potencia e precisao para diferentes superficies e usos.</p>
+              <strong>R$ 329,90</strong>
+              <button class="button button--secondary" type="button">Ver detalhes</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="catalog container" id="catalogo">
+          <div class="section-heading">
+            <p class="eyebrow">Catalogo dinamico</p>
+            <h2>Produtos organizados para filtro, vitrine e compra simulada</h2>
+          </div>
+
+          <div class="catalog__toolbar">
+            <div class="catalog__chips" aria-label="Filtros de categoria">
+              <button class="chip is-active" type="button" data-filter="all">Todos</button>
+              <button class="chip" type="button" data-filter="ferramentas">Ferramentas</button>
+              <button class="chip" type="button" data-filter="eletrica">Eletrica</button>
+              <button class="chip" type="button" data-filter="hidraulica">Hidraulica</button>
+              <button class="chip" type="button" data-filter="ferragens">Ferragens</button>
+              <button class="chip" type="button" data-filter="energia-solar">Energia solar</button>
+            </div>
+            <p class="catalog__count" data-product-count>0 produtos em destaque</p>
+          </div>
+
+          <div class="catalog__grid" data-product-grid></div>
+        </section>
+
+        <section class="reasons container">
+          <article class="reasons__content">
+            <p class="eyebrow">Por que comprar aqui</p>
+            <h2>Uma interface pensada para transmitir confianca tecnica e energia comercial</h2>
+            <ul class="reasons__list">
+              <li>Produtos de alta qualidade para diferentes niveis de projeto</li>
+              <li>Preco competitivo sem perder a sensacao premium da marca</li>
+              <li>Entrega para todo o Brasil com foco em performance comercial</li>
+              <li>Painel admin preparado para evoluir com CRUD e controle de estoque</li>
+            </ul>
+          </article>
+
+          <aside class="security-card">
+            <p class="eyebrow">Compra segura</p>
+            <h3>Seus dados protegidos do inicio ao fim</h3>
+            <p>
+              A experiencia visual reforca confianca e prepara o terreno para checkout
+              e autenticacao integrados.
+            </p>
+          </aside>
+        </section>
+
+        <section class="admin-spotlight container" id="admin">
+          <div class="admin-spotlight__content">
+            <p class="eyebrow">Area administrativa</p>
+            <h2>Cadastro restrito de produtos com foco em operacao realista</h2>
+            <p>
+              A proxima camada do frontend vai conectar esta vitrine publica ao painel
+              de administracao com login, gerenciamento de catalogo, estoque e imagens.
+            </p>
+          </div>
+          <a class="button button--primary" href="#conta">Acessar fluxo admin</a>
+        </section>
+
+        <section class="cart-panel container" id="carrinho">
+          <div class="cart-panel__summary">
+            <p class="eyebrow">Carrinho inicial</p>
+            <h2>Fluxo pronto para simular compra antes da integracao completa</h2>
+            <p>
+              O frontend ja consegue listar itens, somar subtotal e preparar o
+              terreno para checkout e persistencia futura.
+            </p>
+
+            <div class="cart-metrics">
+              <article>
+                <span>Itens</span>
+                <strong data-cart-count>0</strong>
+              </article>
+              <article>
+                <span>Subtotal</span>
+                <strong data-cart-total>R$ 0,00</strong>
+              </article>
+            </div>
+
+            <button class="button button--primary" type="button" data-checkout-button>
+              Finalizar compra simulada
+            </button>
+          </div>
+
+          <div class="cart-panel__items">
+            <div class="cart-panel__header">
+              <h3>Resumo do carrinho</h3>
+              <button class="text-button" type="button" data-clear-cart>Limpar</button>
+            </div>
+            <div class="cart-list" data-cart-list>
+              <p class="empty-state">Seu carrinho ainda esta vazio.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="../src/js/main.js"></script>
+  </body>
+</html>
