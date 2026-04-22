@@ -72,6 +72,26 @@ Principais responsabilidades:
 - rotas autenticadas: operacoes do usuario logado
 - rotas administrativas: protegidas por middleware de permissao
 
+## Rotas Iniciais da API
+
+As rotas base atualmente previstas no backend sao:
+
+- `GET /api/health`: status da API e da conexao com banco
+- `POST /api/auth/login`: autenticacao do administrador
+- `GET /api/admin/me`: leitura do perfil autenticado do admin
+- `GET /api/products`: listagem publica de produtos ativos
+- `GET /api/products/:id`: detalhe publico de produto
+- `POST /api/admin/products`: criacao de produto por admin
+- `PUT /api/admin/products/:id`: edicao de produto por admin
+- `DELETE /api/admin/products/:id`: exclusao de produto por admin
+
+## Estrategia de Autenticacao
+
+- autenticacao baseada em `JWT`
+- token enviado via header `Authorization: Bearer <token>`
+- acesso administrativo liberado apenas para usuarios com `role = admin`
+- segredo e expiracao do token controlados por variaveis de ambiente
+
 ## Padrao ES Modules
 
 O backend sera configurado com `type: "module"` no `package.json`.
@@ -86,8 +106,8 @@ export default express;
 
 ## Proximos Passos Tecnicos
 
-1. Definir o schema inicial do banco
-2. Criar a base do backend com `Express`
-3. Estruturar as rotas da area admin
-4. Modelar autenticacao com `JWT`
-5. Desenvolver o frontend com base na identidade visual
+1. Instalar dependencias e validar o backend em execucao
+2. Refinar autenticacao com hash seguro e fluxo de sessao admin
+3. Implementar upload de imagens de produtos
+4. Desenvolver o frontend com base na identidade visual
+5. Integrar catalogo, carrinho e checkout simulado

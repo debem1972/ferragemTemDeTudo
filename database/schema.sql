@@ -1,1 +1,72 @@
--- Schema inicial do projeto temDeTudo Ferragem
+CREATE DATABASE IF NOT EXISTS temdetudo_ferragem;
+USE temdetudo_ferragem;
+
+CREATE TABLE IF NOT EXISTS usuarios (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(120) NOT NULL,
+  email VARCHAR(160) NOT NULL UNIQUE,
+  senha_hash CHAR(64) NOT NULL,
+  role ENUM('admin', 'customer') NOT NULL DEFAULT 'customer',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS categorias (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(120) NOT NULL,
+  slug VARCHAR(140) NOT NULL UNIQUE,
+  descricao TEXT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS produtos (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  categoria_id INT UNSIGNED NOT NULL,
+  nome VARCHAR(160) NOT NULL,
+  slug VARCHAR(180) NOT NULL UNIQUE,
+  descricao_curta VARCHAR(255) NULL,
+  descricao_completa TEXT NULL,
+  preco DECIMAL(10, 2) NOT NULL,
+  estoque INT NOT NULL DEFAULT 0,
+  ativo BOOLEAN NOT NULL DEFAULT TRUE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  CONSTRAINT fk_produtos_categoria
+    FOREIGN KEY (categoria_id) REFERENCES categorias (id)
+);
+
+CREATE TABLE IF NOT EXISTS produto_imagens (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  produto_id INT UNSIGNED NOT NULL,
+  caminho_arquivo VARCHAR(255) NOT NULL,
+  alt_text VARCHAR(255) NULL,
+  ordem INT NOT NULL DEFAULT 1,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_produto_imagens_produto
+    FOREIGN KEY (produto_id) REFERENCES produtos (id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS pedidos (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  usuario_id INT UNSIGNED NOT NULL,
+  status ENUM('pendente', 'pago', 'enviado', 'cancelado') NOT NULL DEFAULT 'pendente',
+  valor_total DECIMAL(10, 2) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  CONSTRAINT fk_pedidos_usuario
+    FOREIGN KEY (usuario_id) REFERENCES usuarios (id)
+);
+
+CREATE TABLE IF NOT EXISTS pedido_itens (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  pedido_id INT UNSIGNED NOT NULL,
+  produto_id INT UNSIGNED NOT NULL,
+  quantidade INT NOT NULL,
+  preco_unitario DECIMAL(10, 2) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_pedido_itens_pedido
+    FOREIGN KEY (pedido_id) REFERENCES pedidos (id) ON DELETE CASCADE,
+  CONSTRAINT fk_pedido_itens_produto
+    FOREIGN KEY (produto_id) REFERENCES produtos (id)
+);
