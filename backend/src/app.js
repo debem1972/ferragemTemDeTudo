@@ -1,11 +1,11 @@
 import express from 'express';
+import apiRoutes from './routes/index.js';
 
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.get('/health', (_request, response) => {
-  response.status(200).json({ status: 'ok' });
-});
+app.use('/api', apiRoutes);
 
 export default app;

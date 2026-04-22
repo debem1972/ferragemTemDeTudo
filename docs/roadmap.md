@@ -8,9 +8,9 @@
 
 ## Fase 2
 
-- criar backend com `Node.js + Express`
-- configurar `ES Modules`
-- implementar conexao com `MySQL`
+- criar backend com `Node.js + Express` [em andamento]
+- configurar `ES Modules` [feito]
+- implementar conexao com `MySQL` [em andamento]
 
 ## Fase 3
 
