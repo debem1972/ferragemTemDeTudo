@@ -1,0 +1,1 @@
+-- Schema inicial do projeto temDeTudo Ferragem

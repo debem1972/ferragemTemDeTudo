@@ -1,0 +1,1 @@
+-- Seeds iniciais do projeto temDeTudo Ferragem
