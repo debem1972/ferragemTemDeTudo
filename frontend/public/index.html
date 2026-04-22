@@ -207,6 +207,37 @@
           <div class="catalog__grid" data-product-grid></div>
         </section>
 
+        <section class="product-focus container" id="produto">
+          <div class="product-focus__media">
+            <div class="product-focus__panel">
+              <span class="product-focus__badge" data-product-badge>Ferramenta eletrica</span>
+              <h2 data-product-name>Furadeira de Impacto 750W</h2>
+              <p data-product-description>
+                Potencia e precisao para perfuracao em madeira, metal e concreto leve.
+              </p>
+              <strong data-product-price>R$ 329,90</strong>
+            </div>
+          </div>
+
+          <div class="product-focus__details">
+            <p class="eyebrow">Produto em foco</p>
+            <h2>Uma vitrine de detalhe pronta para evoluir para pagina de produto</h2>
+            <ul class="product-focus__specs" data-product-specs>
+              <li>Categoria: Ferramentas</li>
+              <li>Entrega estimada: 3 a 6 dias uteis</li>
+              <li>Estoque: Disponivel para envio imediato</li>
+            </ul>
+            <div class="product-focus__actions">
+              <button class="button button--primary" type="button" data-focus-add>
+                Adicionar ao carrinho
+              </button>
+              <a class="button button--secondary product-focus__link" href="#checkout">
+                Ir para checkout
+              </a>
+            </div>
+          </div>
+        </section>
+
         <section class="reasons container">
           <article class="reasons__content">
             <p class="eyebrow">Por que comprar aqui</p>
@@ -275,6 +306,57 @@
               <p class="empty-state">Seu carrinho ainda esta vazio.</p>
             </div>
           </div>
+        </section>
+
+        <section class="checkout container" id="checkout">
+          <div class="checkout__content">
+            <div class="section-heading">
+              <p class="eyebrow">Checkout simulado</p>
+              <h2>Uma etapa visual para consolidar a jornada de compra</h2>
+            </div>
+
+            <form class="checkout-form">
+              <div class="checkout-form__grid">
+                <label>
+                  <span>Nome completo</span>
+                  <input type="text" placeholder="Seu nome" />
+                </label>
+                <label>
+                  <span>E-mail</span>
+                  <input type="email" placeholder="voce@exemplo.com" />
+                </label>
+                <label>
+                  <span>Endereco</span>
+                  <input type="text" placeholder="Rua, numero e complemento" />
+                </label>
+                <label>
+                  <span>Cidade</span>
+                  <input type="text" placeholder="Sua cidade" />
+                </label>
+              </div>
+            </form>
+          </div>
+
+          <aside class="checkout__summary">
+            <p class="eyebrow">Resumo do pedido</p>
+            <div class="checkout__card">
+              <div class="checkout__row">
+                <span>Subtotal</span>
+                <strong data-checkout-subtotal>R$ 0,00</strong>
+              </div>
+              <div class="checkout__row">
+                <span>Frete</span>
+                <strong data-checkout-shipping>R$ 0,00</strong>
+              </div>
+              <div class="checkout__row checkout__row--total">
+                <span>Total</span>
+                <strong data-checkout-total>R$ 0,00</strong>
+              </div>
+              <button class="button button--primary checkout__button" type="button" data-place-order>
+                Confirmar pedido ficticio
+              </button>
+            </div>
+          </aside>
         </section>
       </main>
     </div>

@@ -5,6 +5,7 @@ const state = {
   filteredProducts: [],
   activeFilter: 'all',
   cart: [],
+  focusedProduct: null,
 };
 
 const searchForm = document.querySelector('.search');
@@ -16,12 +17,57 @@ const cartCount = document.querySelector('[data-cart-count]');
 const cartTotal = document.querySelector('[data-cart-total]');
 const clearCartButton = document.querySelector('[data-clear-cart]');
 const checkoutButton = document.querySelector('[data-checkout-button]');
+const placeOrderButton = document.querySelector('[data-place-order]');
+const checkoutSubtotal = document.querySelector('[data-checkout-subtotal]');
+const checkoutShipping = document.querySelector('[data-checkout-shipping]');
+const checkoutTotal = document.querySelector('[data-checkout-total]');
+const focusName = document.querySelector('[data-product-name]');
+const focusBadge = document.querySelector('[data-product-badge]');
+const focusDescription = document.querySelector('[data-product-description]');
+const focusPrice = document.querySelector('[data-product-price]');
+const focusSpecs = document.querySelector('[data-product-specs]');
+const focusAddButton = document.querySelector('[data-focus-add]');
 
 function formatPrice(value) {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
   }).format(value);
+}
+
+function getCartSubtotal() {
+  return state.cart.reduce((sum, item) => sum + item.preco * item.quantidade, 0);
+}
+
+function getShippingValue() {
+  const subtotal = getCartSubtotal();
+
+  if (subtotal === 0) {
+    return 0;
+  }
+
+  if (subtotal >= 299) {
+    return 0;
+  }
+
+  return 29.9;
+}
+
+function renderFocusedProduct(product) {
+  if (!product || !focusName || !focusBadge || !focusDescription || !focusPrice || !focusSpecs) {
+    return;
+  }
+
+  state.focusedProduct = product;
+  focusBadge.textContent = product.badge;
+  focusName.textContent = product.nome;
+  focusDescription.textContent = product.descricao;
+  focusPrice.textContent = formatPrice(product.preco);
+  focusSpecs.innerHTML = `
+    <li>Categoria: ${product.categoria}</li>
+    <li>Entrega estimada: ${product.entrega}</li>
+    <li>Estoque: ${product.estoqueLabel}</li>
+  `;
 }
 
 function renderProducts(products) {
@@ -49,9 +95,14 @@ function renderProducts(products) {
           <p>${product.descricao}</p>
           <div class="catalog-card__footer">
             <strong>${formatPrice(product.preco)}</strong>
-            <button class="button button--primary" type="button" data-add-to-cart="${product.id}">
-              Comprar
-            </button>
+            <div class="catalog-card__actions">
+              <button class="button button--secondary catalog-card__button" type="button" data-focus-product="${product.id}">
+                Ver produto
+              </button>
+              <button class="button button--primary catalog-card__button" type="button" data-add-to-cart="${product.id}">
+                Comprar
+              </button>
+            </div>
           </div>
         </article>
       `,
@@ -60,6 +111,24 @@ function renderProducts(products) {
 
   if (productCount) {
     productCount.textContent = `${products.length} produtos em destaque`;
+  }
+}
+
+function renderCheckoutSummary() {
+  const subtotal = getCartSubtotal();
+  const shipping = getShippingValue();
+  const total = subtotal + shipping;
+
+  if (checkoutSubtotal) {
+    checkoutSubtotal.textContent = formatPrice(subtotal);
+  }
+
+  if (checkoutShipping) {
+    checkoutShipping.textContent = formatPrice(shipping);
+  }
+
+  if (checkoutTotal) {
+    checkoutTotal.textContent = formatPrice(total);
   }
 }
 
@@ -72,6 +141,7 @@ function renderCart() {
     cartList.innerHTML = '<p class="empty-state">Seu carrinho ainda esta vazio.</p>';
     cartCount.textContent = '0';
     cartTotal.textContent = formatPrice(0);
+    renderCheckoutSummary();
     return;
   }
 
@@ -95,10 +165,11 @@ function renderCart() {
     .join('');
 
   const totalItems = state.cart.reduce((sum, item) => sum + item.quantidade, 0);
-  const totalPrice = state.cart.reduce((sum, item) => sum + item.preco * item.quantidade, 0);
+  const totalPrice = getCartSubtotal();
 
   cartCount.textContent = String(totalItems);
   cartTotal.textContent = formatPrice(totalPrice);
+  renderCheckoutSummary();
 }
 
 function applyFilter(filter) {
@@ -140,6 +211,7 @@ function removeFromCart(productId) {
 
 async function initializeCatalog() {
   state.products = await getProducts();
+  renderFocusedProduct(state.products[0]);
   applyFilter('all');
   renderCart();
 }
@@ -186,6 +258,14 @@ productGrid?.addEventListener('click', (event) => {
   }
 
   const addButton = target.closest('[data-add-to-cart]');
+  const focusButton = target.closest('[data-focus-product]');
+
+  if (focusButton instanceof HTMLElement) {
+    const product = state.products.find((item) => item.id === Number(focusButton.dataset.focusProduct));
+    renderFocusedProduct(product);
+    document.querySelector('#produto')?.scrollIntoView({ behavior: 'smooth' });
+    return;
+  }
 
   if (addButton instanceof HTMLElement) {
     addToCart(addButton.dataset.addToCart);
@@ -206,6 +286,15 @@ cartList?.addEventListener('click', (event) => {
   }
 });
 
+focusAddButton?.addEventListener('click', () => {
+  if (!state.focusedProduct) {
+    return;
+  }
+
+  addToCart(state.focusedProduct.id);
+  document.querySelector('#carrinho')?.scrollIntoView({ behavior: 'smooth' });
+});
+
 clearCartButton?.addEventListener('click', () => {
   state.cart = [];
   renderCart();
@@ -216,11 +305,19 @@ checkoutButton?.addEventListener('click', () => {
     return;
   }
 
-  alert('Checkout simulado iniciado. Na proxima etapa integraremos este fluxo.');
+  document.querySelector('#checkout')?.scrollIntoView({ behavior: 'smooth' });
+});
+
+placeOrderButton?.addEventListener('click', () => {
+  if (!state.cart.length) {
+    return;
+  }
+
+  alert('Pedido ficticio confirmado com sucesso. Na proxima fase vamos consolidar esse checkout.');
 });
 
 const revealElements = document.querySelectorAll(
-  '.hero__panel, .hero__visual, .category-card, .product-card, .security-card, .admin-spotlight',
+  '.hero__panel, .hero__visual, .category-card, .product-card, .security-card, .admin-spotlight, .cart-panel__summary, .cart-panel__items',
 );
 
 const observer = new IntersectionObserver(

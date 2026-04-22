@@ -21,7 +21,7 @@
 ## Fase 4
 
 - desenvolver frontend da loja [em andamento]
-- integrar catalogo, produto e carrinho [pendente]
+- integrar catalogo, produto e carrinho [em andamento]
 - aplicar identidade visual da marca [em andamento]
 
 ## Fase 5

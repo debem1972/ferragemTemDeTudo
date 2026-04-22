@@ -6,6 +6,8 @@ const mockProducts = [
     descricao: 'Potencia e precisao para perfuracao em madeira, metal e concreto leve.',
     preco: 329.9,
     badge: 'Ferramenta eletrica',
+    estoqueLabel: 'Disponivel para envio imediato',
+    entrega: '3 a 6 dias uteis',
   },
   {
     id: 2,
@@ -14,6 +16,8 @@ const mockProducts = [
     descricao: 'Estrutura resistente para transporte de ferramentas e acessorios.',
     preco: 189.5,
     badge: 'Organizacao',
+    estoqueLabel: 'Pronta entrega',
+    entrega: '2 a 5 dias uteis',
   },
   {
     id: 3,
@@ -22,6 +26,8 @@ const mockProducts = [
     descricao: 'Composicao ideal para quadros eletricos residenciais e comerciais.',
     preco: 214.9,
     badge: 'Eletrica',
+    estoqueLabel: 'Estoque de giro continuo',
+    entrega: '4 a 7 dias uteis',
   },
   {
     id: 4,
@@ -30,6 +36,8 @@ const mockProducts = [
     descricao: 'Pecas para instalacoes hidraulicas com vedacao segura e acabamento limpo.',
     preco: 142.75,
     badge: 'Hidraulica',
+    estoqueLabel: 'Disponivel em lote promocional',
+    entrega: '3 a 5 dias uteis',
   },
   {
     id: 5,
@@ -38,6 +46,8 @@ const mockProducts = [
     descricao: 'Alta eficiencia energetica para projetos residenciais e comerciais.',
     preco: 1249,
     badge: 'Energia solar',
+    estoqueLabel: 'Sob consulta para grandes projetos',
+    entrega: '5 a 10 dias uteis',
   },
   {
     id: 6,
@@ -46,6 +56,8 @@ const mockProducts = [
     descricao: 'Autonomia, ergonomia e torque para montagens e manutencao diaria.',
     preco: 419.9,
     badge: 'Mais vendida',
+    estoqueLabel: 'Ultimas unidades do lote',
+    entrega: '2 a 4 dias uteis',
   },
 ];
 
