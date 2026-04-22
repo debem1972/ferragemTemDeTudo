@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Build and coverage
+dist/
+build/
+coverage/
+.nyc_output/
+
+# Runtime files
+logs/
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Uploaded files and generated assets
+uploads/
+tmp/
+
+# Database and local tooling
+*.sqlite
+*.sqlite3
+*.db
+
+# Cache
+.cache/
+.eslintcache
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
