@@ -14,26 +14,33 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
     <link rel="stylesheet" href="../src/css/main.css" />
   </head>
   <body>
     <div class="site-shell">
       <header class="topbar">
         <div class="topbar__inner container">
-          <p>Entrega para todo o Brasil</p>
-          <p>Produtos de qualidade</p>
-          <p>Atendimento especializado</p>
+          <p class="topbar__item"><i class="bi bi-truck"></i> Entrega para todo o Brasil</p>
+          <p class="topbar__item">
+            <i class="bi bi-shield-check"></i> Produtos de qualidade
+          </p>
+          <p class="topbar__item">
+            <i class="bi bi-headset"></i> Atendimento especializado
+          </p>
         </div>
       </header>
 
       <header class="header">
         <div class="header__inner container">
           <a class="brand" href="#home" aria-label="Pagina inicial temDeTudo Ferragem">
-            <span class="brand__roof"></span>
-            <span class="brand__name">
-              <strong>tem</strong><em>De</em><strong>Tudo</strong>
-            </span>
-            <span class="brand__badge">Ferragem</span>
+            <img
+              src="../../images/temdeTudoVariacaoFundoEscuroSem.png"
+              alt="temDeTudo Ferragem"
+            />
           </a>
 
           <form class="search" role="search">
@@ -44,70 +51,50 @@
               type="search"
               placeholder="O que voce procura hoje?"
             />
-            <button type="submit">Buscar</button>
+            <button type="submit" aria-label="Buscar">
+              <i class="bi bi-search"></i>
+            </button>
           </form>
 
           <nav class="header__actions" aria-label="Acoes rapidas">
-            <a href="#admin">Area admin</a>
-            <a href="#conta">Minha conta</a>
-            <a href="#carrinho">Carrinho</a>
+            <a href="#admin">
+              <i class="bi bi-shield-lock"></i>
+              <span>Area Admin</span>
+            </a>
+            <a href="#conta">
+              <i class="bi bi-person"></i>
+              <span>Minha conta</span>
+            </a>
+            <a href="#carrinho" class="header__cart-link">
+              <i class="bi bi-cart3"></i>
+              <span>Carrinho</span>
+              <span class="header__cart-badge" data-cart-count>0</span>
+            </a>
           </nav>
         </div>
       </header>
 
       <nav class="category-nav">
         <div class="category-nav__inner container">
-          <a href="#categorias">Todas categorias</a>
-          <a href="#ferramentas">Ferramentas</a>
-          <a href="#eletrica">Eletrica</a>
-          <a href="#hidraulica">Hidraulica</a>
-          <a href="#ferragens">Ferragens</a>
-          <a href="#solar">Energia solar</a>
-          <a href="#ofertas" class="highlight-link">Ofertas</a>
+          <a href="#categorias">Todas as Categorias</a>
+          <a href="#ferramentas"><i class="bi bi-tools"></i> Ferramentas</a>
+          <a href="#eletrica"><i class="bi bi-lightning-charge"></i> Eletrica</a>
+          <a href="#hidraulica"><i class="bi bi-droplet"></i> Hidraulica</a>
+          <a href="#ferragens"><i class="bi bi-gear"></i> Ferragens</a>
+          <a href="#solar"><i class="bi bi-sun"></i> Energia Solar</a>
+          <a href="#ofertas" class="highlight-link"><i class="bi bi-tag"></i> Ofertas</a>
         </div>
       </nav>
 
       <main id="home">
         <section class="hero container">
           <div class="hero__panel">
-            <p class="eyebrow">Do basico ao profissional</p>
-            <h1>
-              Aqui tem de tudo para sua obra, reforma e instalacao com visual
-              forte e compra segura.
-            </h1>
-            <p class="hero__text">
-              Uma vitrine moderna para ferramentas, materiais eletricos,
-              hidraulicos, ferragens e solucoes em energia solar.
-            </p>
-
-            <div class="hero__actions">
-              <a class="button button--primary" href="#ofertas">Conferir ofertas</a>
-              <a class="button button--secondary" href="#categorias">Explorar categorias</a>
-            </div>
-
-            <ul class="hero__badges" aria-label="Diferenciais da loja">
-              <li>Qualidade garantida</li>
-              <li>Melhores precos</li>
-              <li>Entrega rapida</li>
-              <li>Suporte especializado</li>
-            </ul>
+            <a class="button button--primary hero__cta" href="#ofertas">
+              Confira as ofertas <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
 
-          <div class="hero__visual" aria-hidden="true">
-            <div class="hero-card hero-card--toolbox">
-              <span></span>
-            </div>
-            <div class="hero-card hero-card--drill">
-              <span></span>
-            </div>
-            <div class="hero-card hero-card--solar">
-              <span></span>
-            </div>
-            <div class="hero__price-tag">
-              <small>Frete gratis*</small>
-              <strong>Acima de R$299,00</strong>
-            </div>
-          </div>
+          <div class="hero__visual" aria-hidden="true"></div>
         </section>
 
         <section class="categories container" id="categorias">

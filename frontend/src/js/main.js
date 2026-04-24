@@ -13,7 +13,7 @@ const productGrid = document.querySelector('[data-product-grid]');
 const productCount = document.querySelector('[data-product-count]');
 const filterButtons = document.querySelectorAll('[data-filter]');
 const cartList = document.querySelector('[data-cart-list]');
-const cartCount = document.querySelector('[data-cart-count]');
+const cartCounts = document.querySelectorAll('[data-cart-count]');
 const cartTotal = document.querySelector('[data-cart-total]');
 const clearCartButton = document.querySelector('[data-clear-cart]');
 const checkoutButton = document.querySelector('[data-checkout-button]');
@@ -133,13 +133,15 @@ function renderCheckoutSummary() {
 }
 
 function renderCart() {
-  if (!cartList || !cartCount || !cartTotal) {
+  if (!cartList || !cartCounts.length || !cartTotal) {
     return;
   }
 
   if (!state.cart.length) {
     cartList.innerHTML = '<p class="empty-state">Seu carrinho ainda esta vazio.</p>';
-    cartCount.textContent = '0';
+    cartCounts.forEach((element) => {
+      element.textContent = '0';
+    });
     cartTotal.textContent = formatPrice(0);
     renderCheckoutSummary();
     return;
@@ -167,7 +169,9 @@ function renderCart() {
   const totalItems = state.cart.reduce((sum, item) => sum + item.quantidade, 0);
   const totalPrice = getCartSubtotal();
 
-  cartCount.textContent = String(totalItems);
+  cartCounts.forEach((element) => {
+    element.textContent = String(totalItems);
+  });
   cartTotal.textContent = formatPrice(totalPrice);
   renderCheckoutSummary();
 }
