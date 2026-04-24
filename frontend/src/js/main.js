@@ -27,6 +27,7 @@ const focusDescription = document.querySelector('[data-product-description]');
 const focusPrice = document.querySelector('[data-product-price]');
 const focusSpecs = document.querySelector('[data-product-specs]');
 const focusAddButton = document.querySelector('[data-focus-add]');
+const siteHeader = document.querySelector('.header');
 
 function formatPrice(value) {
   return new Intl.NumberFormat('pt-BR', {
@@ -112,6 +113,20 @@ function renderProducts(products) {
   if (productCount) {
     productCount.textContent = `${products.length} produtos em destaque`;
   }
+}
+
+function syncCategoryNavOffset() {
+  if (!siteHeader) {
+    return;
+  }
+
+  if (window.innerWidth <= 720) {
+    document.documentElement.style.removeProperty('--category-nav-offset');
+    return;
+  }
+
+  const headerHeight = Math.ceil(siteHeader.getBoundingClientRect().height);
+  document.documentElement.style.setProperty('--category-nav-offset', `${headerHeight}px`);
 }
 
 function renderCheckoutSummary() {
@@ -341,5 +356,9 @@ revealElements.forEach((element, index) => {
   element.classList.add('reveal');
   observer.observe(element);
 });
+
+syncCategoryNavOffset();
+window.addEventListener('load', syncCategoryNavOffset);
+window.addEventListener('resize', syncCategoryNavOffset);
 
 initializeCatalog();
