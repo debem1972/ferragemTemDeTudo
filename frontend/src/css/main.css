@@ -324,7 +324,7 @@ input {
 
 .hero__visual {
   min-height: 420px;
-  background: url('../../../images/bannerAssaid.png') center/105% auto no-repeat #fff;
+  background: url('../../../images/bannerAssaid.png') center/contain no-repeat #fff;
 }
 
 .hero__cta {
