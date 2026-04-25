@@ -1,5 +1,15 @@
 # Arquitetura do Projeto
 
+# Modelo de Transação: B2C(Business to Consumer)
+
+O projeto `temDeTudo Ferragem` opera no sistema de venda direta, onde o usuário se cadastra no site e efetua a compra.
+
+
+# Modelo de Operação: Inventário Próprio (Varejo Online com Estoque Próprio)
+
+O projeto `temDeTudo Ferragem` adotará o modelo de operação de inventário próprio, onde os produtos disponíveis para venda serão mantidos em estoque local. Isso permitirá um controle mais direto sobre a disponibilidade dos produtos, a qualidade do atendimento e a experiência do cliente.
+
+
 ## Visao Geral
 
 O projeto `temDeTudo Ferragem` sera dividido em quatro frentes principais:

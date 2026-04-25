@@ -283,7 +283,7 @@ input {
   overflow: hidden;
   min-height: 420px;
   padding: 0;
-  background: url('../../../images/bannerSemBotao.png') 38% center/cover no-repeat;
+  background: url('../assets/images/bannerSemBotao.png') 38% center/cover no-repeat;
 }
 
 .eyebrow {
@@ -334,7 +334,7 @@ input {
 
 .hero__visual {
   min-height: 420px;
-  background: url('../../../images/bannerAssaid.png') center/contain no-repeat #fff;
+  background: url('../assets/images/bannerAssaid.png') center/contain no-repeat #fff;
 }
 
 .hero__cta {

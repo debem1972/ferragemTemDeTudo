@@ -8,9 +8,11 @@ Projeto de e-commerce fullstack voltado ao segmento de ferragens, materiais elet
 .
 ├── docs/
 ├── frontend/
+│   └── src/
+│       └── assets/
+│           └── images/
 ├── backend/
 ├── database/
-├── images/
 ├── .gitignore
 ├── LICENSE
 └── README.md
