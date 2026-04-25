@@ -350,7 +350,7 @@ window.addEventListener('keydown', (event) => {
 });
 
 const revealElements = document.querySelectorAll(
-  '.hero__panel, .hero__visual, .category-card, .product-card, .security-card, .reason-card, .journey-step',
+  '.hero__panel, .hero__visual, .category-card, .product-card, .security-card, .reason-card',
 );
 
 const observer = new IntersectionObserver(
