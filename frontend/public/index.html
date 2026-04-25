@@ -57,19 +57,19 @@
           </form>
 
           <nav class="header__actions" aria-label="Acoes rapidas">
-            <a href="#admin">
-              <i class="bi bi-shield-lock"></i>
-              <span>Area Admin</span>
-            </a>
             <a href="#conta">
-              <i class="bi bi-person"></i>
-              <span>Minha conta</span>
+              <i class="bi bi-person-circle"></i>
+              <span>Entrar</span>
             </a>
-            <a href="#carrinho" class="header__cart-link">
+            <a href="#jornada">
+              <i class="bi bi-box-seam"></i>
+              <span>Como comprar</span>
+            </a>
+            <button class="header__cart-link header__cart-button" type="button" data-cart-open>
               <i class="bi bi-cart3"></i>
               <span>Carrinho</span>
               <span class="header__cart-badge" data-cart-count>0</span>
-            </a>
+            </button>
           </nav>
         </div>
       </header>
@@ -105,31 +105,49 @@
 
           <div class="categories__grid">
             <article class="category-card" id="ferramentas">
+              <div class="category-card__media category-card__media--tool">
+                <i class="bi bi-tools" aria-hidden="true"></i>
+              </div>
               <span class="category-card__icon">01</span>
               <h3>Ferramentas</h3>
               <p>Manuais, eletricas e acessorios para uso domestico e profissional.</p>
             </article>
             <article class="category-card" id="eletrica">
+              <div class="category-card__media category-card__media--electric">
+                <i class="bi bi-lightning-charge" aria-hidden="true"></i>
+              </div>
               <span class="category-card__icon">02</span>
               <h3>Eletrica</h3>
               <p>Cabos, disjuntores, tomadas, luminarias e componentes essenciais.</p>
             </article>
             <article class="category-card" id="hidraulica">
+              <div class="category-card__media category-card__media--water">
+                <i class="bi bi-droplet-half" aria-hidden="true"></i>
+              </div>
               <span class="category-card__icon">03</span>
               <h3>Hidraulica</h3>
               <p>Tubos, registros, conexoes e kits para instalacoes confiaveis.</p>
             </article>
             <article class="category-card" id="ferragens">
+              <div class="category-card__media category-card__media--hardware">
+                <i class="bi bi-nut" aria-hidden="true"></i>
+              </div>
               <span class="category-card__icon">04</span>
               <h3>Ferragens</h3>
               <p>Fixacao, suportes, dobradicas e itens para acabamento e montagem.</p>
             </article>
             <article class="category-card" id="solar">
+              <div class="category-card__media category-card__media--solar">
+                <i class="bi bi-sun" aria-hidden="true"></i>
+              </div>
               <span class="category-card__icon">05</span>
               <h3>Energia solar</h3>
               <p>Paineis, inversores e componentes para projetos on-grid e off-grid.</p>
             </article>
             <article class="category-card">
+              <div class="category-card__media category-card__media--charge">
+                <i class="bi bi-ev-station" aria-hidden="true"></i>
+              </div>
               <span class="category-card__icon">06</span>
               <h3>Estacoes de carregamento</h3>
               <p>Solucoes para mobilidade eletrica e infraestrutura mais moderna.</p>
@@ -145,6 +163,7 @@
 
           <div class="offers__grid">
             <article class="product-card product-card--featured">
+              <div class="product-card__media product-card__media--featured" aria-hidden="true"></div>
               <span class="product-card__tag">Mais buscado</span>
               <h3>Kit profissional de instalacao</h3>
               <p>
@@ -152,23 +171,31 @@
                 agilidade na obra.
               </p>
               <strong>R$ 459,90</strong>
-              <button class="button button--primary" type="button">Adicionar ao carrinho</button>
+              <button class="button button--primary" type="button" data-add-to-cart="1">
+                Adicionar ao carrinho
+              </button>
             </article>
 
             <article class="product-card">
+              <div class="product-card__media product-card__media--solar" aria-hidden="true"></div>
               <span class="product-card__tag">Energia solar</span>
               <h3>Painel monocristalino 550W</h3>
               <p>Alta eficiencia para projetos residenciais e comerciais.</p>
               <strong>R$ 1.249,00</strong>
-              <button class="button button--secondary" type="button">Ver detalhes</button>
+              <button class="button button--secondary" type="button" data-focus-product="5">
+                Ver detalhes
+              </button>
             </article>
 
             <article class="product-card">
+              <div class="product-card__media product-card__media--tool" aria-hidden="true"></div>
               <span class="product-card__tag">Ferramenta eletrica</span>
               <h3>Furadeira de impacto 750W</h3>
               <p>Potencia e precisao para diferentes superficies e usos.</p>
               <strong>R$ 329,90</strong>
-              <button class="button button--secondary" type="button">Ver detalhes</button>
+              <button class="button button--secondary" type="button" data-focus-product="1">
+                Ver detalhes
+              </button>
             </article>
           </div>
         </section>
@@ -218,134 +245,133 @@
               <button class="button button--primary" type="button" data-focus-add>
                 Adicionar ao carrinho
               </button>
-              <a class="button button--secondary product-focus__link" href="#checkout">
-                Ir para checkout
+              <a class="button button--secondary product-focus__link" href="#jornada">
+                Entender a jornada
               </a>
             </div>
           </div>
         </section>
 
-        <section class="reasons container">
+        <section class="reasons container" id="atendimento">
           <article class="reasons__content">
             <p class="eyebrow">Por que comprar aqui</p>
-            <h2>Uma interface pensada para transmitir confianca tecnica e energia comercial</h2>
-            <ul class="reasons__list">
-              <li>Produtos de alta qualidade para diferentes niveis de projeto</li>
-              <li>Preco competitivo sem perder a sensacao premium da marca</li>
-              <li>Entrega para todo o Brasil com foco em performance comercial</li>
-              <li>Painel admin preparado para evoluir com CRUD e controle de estoque</li>
-            </ul>
+            <h2>Uma loja pensada para quem precisa comprar com agilidade, orientacao e seguranca</h2>
+            <div class="reasons__grid">
+              <article class="reason-card">
+                <i class="bi bi-patch-check"></i>
+                <h3>Curadoria tecnica</h3>
+                <p>Mix voltado para obra, manutencao e instalacao com foco em giro e confianca.</p>
+              </article>
+              <article class="reason-card">
+                <i class="bi bi-truck"></i>
+                <h3>Entrega clara</h3>
+                <p>Prazos visiveis no produto e comunicacao objetiva para reduzir abandono.</p>
+              </article>
+              <article class="reason-card">
+                <i class="bi bi-headset"></i>
+                <h3>Atendimento humano</h3>
+                <p>Apoio comercial para quem precisa decidir rapido sem perder seguranca tecnica.</p>
+              </article>
+              <article class="reason-card">
+                <i class="bi bi-shield-lock"></i>
+                <h3>Compra protegida</h3>
+                <p>Fluxo preparado para login, pedidos e administracao sem expor areas restritas.</p>
+              </article>
+            </div>
           </article>
 
           <aside class="security-card">
-            <p class="eyebrow">Compra segura</p>
-            <h3>Seus dados protegidos do inicio ao fim</h3>
+            <p class="eyebrow">Confianca comercial</p>
+            <h3>Estrutura visual mais proxima do que o cliente espera em um e-commerce real</h3>
             <p>
-              A experiencia visual reforca confianca e prepara o terreno para checkout
-              e autenticacao integrados.
+              A home agora atua como vitrine publica. Carrinho completo, checkout e painel
+              administrativo seguem como fluxos separados, o que deixa a experiencia mais clara.
             </p>
+            <a class="button button--primary security-card__button" href="#jornada">
+              Ver como a compra acontece
+            </a>
           </aside>
         </section>
 
-        <section class="admin-spotlight container" id="admin">
-          <div class="admin-spotlight__content">
-            <p class="eyebrow">Area administrativa</p>
-            <h2>Cadastro restrito de produtos com foco em operacao realista</h2>
+        <section class="journey container" id="jornada">
+          <div class="section-heading">
+            <p class="eyebrow">Jornada de compra</p>
+            <h2>Um fluxo mais realista para a loja evoluir sem confundir o cliente</h2>
+          </div>
+
+          <div class="journey__grid">
+            <article class="journey-step">
+              <span>01</span>
+              <h3>Explorar e comparar</h3>
+              <p>O cliente navega pela home, categorias e busca para encontrar o item ideal.</p>
+            </article>
+            <article class="journey-step">
+              <span>02</span>
+              <h3>Adicionar ao carrinho</h3>
+              <p>Os produtos ficam salvos no carrinho lateral, sem poluir a pagina principal.</p>
+            </article>
+            <article class="journey-step">
+              <span>03</span>
+              <h3>Entrar ou cadastrar-se</h3>
+              <p>No momento de avancar, o sistema solicita identificacao para continuar a compra.</p>
+            </article>
+            <article class="journey-step">
+              <span>04</span>
+              <h3>Endereco, frete e pagamento</h3>
+              <p>Essas etapas ficam em telas proprias, com validacoes e resumo do pedido.</p>
+            </article>
+            <article class="journey-step">
+              <span>05</span>
+              <h3>Confirmacao e acompanhamento</h3>
+              <p>Depois da aprovacao, o pedido entra na area do cliente e segue para a operacao.</p>
+            </article>
+          </div>
+
+          <div class="journey__note" id="conta">
             <p>
-              A proxima camada do frontend vai conectar esta vitrine publica ao painel
-              de administracao com login, gerenciamento de catalogo, estoque e imagens.
+              `Area administrativa`, `carrinho completo` e `checkout` permanecem como fluxos
+              separados da home publica e serao construidos em paginas dedicadas.
             </p>
           </div>
-          <a class="button button--primary" href="#conta">Acessar fluxo admin</a>
         </section>
+      </main>
 
-        <section class="cart-panel container" id="carrinho">
-          <div class="cart-panel__summary">
-            <p class="eyebrow">Carrinho inicial</p>
-            <h2>Fluxo pronto para simular compra antes da integracao completa</h2>
-            <p>
-              O frontend ja consegue listar itens, somar subtotal e preparar o
-              terreno para checkout e persistencia futura.
-            </p>
-
-            <div class="cart-metrics">
-              <article>
-                <span>Itens</span>
-                <strong data-cart-count>0</strong>
-              </article>
-              <article>
-                <span>Subtotal</span>
-                <strong data-cart-total>R$ 0,00</strong>
-              </article>
+      <div class="cart-drawer" data-cart-panel aria-hidden="true">
+        <div class="cart-drawer__overlay" data-cart-close></div>
+        <aside class="cart-drawer__content" aria-label="Carrinho">
+          <div class="cart-drawer__header">
+            <div>
+              <p class="eyebrow">Carrinho</p>
+              <h2>Resumo rapido da compra</h2>
             </div>
-
-            <button class="button button--primary" type="button" data-checkout-button>
-              Finalizar compra simulada
+            <button class="cart-drawer__close" type="button" aria-label="Fechar carrinho" data-cart-close>
+              <i class="bi bi-x-lg"></i>
             </button>
           </div>
 
-          <div class="cart-panel__items">
-            <div class="cart-panel__header">
-              <h3>Resumo do carrinho</h3>
+          <p class="cart-drawer__intro">
+            O carrinho pode receber itens na vitrine publica. O checkout entra na proxima etapa,
+            junto com login e cadastro.
+          </p>
+
+          <div class="cart-list" data-cart-list>
+            <p class="empty-state">Seu carrinho ainda esta vazio.</p>
+          </div>
+
+          <div class="cart-drawer__footer">
+            <div class="cart-drawer__total">
+              <span>Subtotal</span>
+              <strong data-cart-total>R$ 0,00</strong>
+            </div>
+            <div class="cart-drawer__actions">
               <button class="text-button" type="button" data-clear-cart>Limpar</button>
-            </div>
-            <div class="cart-list" data-cart-list>
-              <p class="empty-state">Seu carrinho ainda esta vazio.</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="checkout container" id="checkout">
-          <div class="checkout__content">
-            <div class="section-heading">
-              <p class="eyebrow">Checkout simulado</p>
-              <h2>Uma etapa visual para consolidar a jornada de compra</h2>
-            </div>
-
-            <form class="checkout-form">
-              <div class="checkout-form__grid">
-                <label>
-                  <span>Nome completo</span>
-                  <input type="text" placeholder="Seu nome" />
-                </label>
-                <label>
-                  <span>E-mail</span>
-                  <input type="email" placeholder="voce@exemplo.com" />
-                </label>
-                <label>
-                  <span>Endereco</span>
-                  <input type="text" placeholder="Rua, numero e complemento" />
-                </label>
-                <label>
-                  <span>Cidade</span>
-                  <input type="text" placeholder="Sua cidade" />
-                </label>
-              </div>
-            </form>
-          </div>
-
-          <aside class="checkout__summary">
-            <p class="eyebrow">Resumo do pedido</p>
-            <div class="checkout__card">
-              <div class="checkout__row">
-                <span>Subtotal</span>
-                <strong data-checkout-subtotal>R$ 0,00</strong>
-              </div>
-              <div class="checkout__row">
-                <span>Frete</span>
-                <strong data-checkout-shipping>R$ 0,00</strong>
-              </div>
-              <div class="checkout__row checkout__row--total">
-                <span>Total</span>
-                <strong data-checkout-total>R$ 0,00</strong>
-              </div>
-              <button class="button button--primary checkout__button" type="button" data-place-order>
-                Confirmar pedido ficticio
+              <button class="button button--primary" type="button" data-account-cta>
+                Entrar para finalizar
               </button>
             </div>
-          </aside>
-        </section>
-      </main>
+          </div>
+        </aside>
+      </div>
     </div>
 
     <script type="module" src="../src/js/main.js"></script>
