@@ -629,9 +629,9 @@ button {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(420px, 0.88fr) minmax(620px, 1.12fr);
+  grid-template-columns: minmax(0, 1.18fr) minmax(480px, 0.82fr);
   gap: 1.4rem;
-  align-items: end;
+  align-items: start;
 }
 
 .catalog__headline {
@@ -685,7 +685,7 @@ button {
 }
 
 .chip {
-  padding: 0.85rem 1.1rem;
+  padding: 0.82rem 1rem;
   border-radius: 999px;
   background: linear-gradient(180deg, #f8fafc, #edf2f7);
   color: var(--color-navy);
@@ -703,6 +703,10 @@ button {
 .catalog__support {
   display: grid;
   gap: 0.95rem;
+  max-width: 520px;
+  margin-left: auto;
+  padding-top: 0.2rem;
+  align-content: start;
 }
 
 .catalog__benefits {
@@ -754,6 +758,12 @@ button {
     linear-gradient(135deg, #14355d 0%, #0b2747 100%);
   color: var(--color-white);
   box-shadow: 0 24px 48px rgba(12, 39, 69, 0.24);
+}
+
+@media (min-width: 1181px) {
+  .catalog__chips {
+    flex-wrap: nowrap;
+  }
 }
 
 .catalog__promo-icon {
