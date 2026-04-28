@@ -35,8 +35,10 @@ const focusSpecs = document.querySelector('[data-product-specs]');
 const focusAddButton = document.querySelector('[data-focus-add]');
 const focusMedia = document.querySelector('.product-focus__media');
 const plpLinks = document.querySelectorAll('[data-plp-link]');
+const topbar = document.querySelector('.topbar');
 const siteHeader = document.querySelector('.header');
 const categoryNav = document.querySelector('.category-nav');
+const heroSection = document.querySelector('.hero');
 
 function formatPrice(value) {
   return new Intl.NumberFormat('pt-BR', {
@@ -284,8 +286,28 @@ function syncLayoutOffsets() {
     return;
   }
 
+  const topbarHeight = topbar ? Math.ceil(topbar.getBoundingClientRect().height) : 0;
   const headerHeight = Math.ceil(siteHeader.getBoundingClientRect().height);
   const categoryNavHeight = categoryNav ? Math.ceil(categoryNav.getBoundingClientRect().height) : 0;
+  const heroStyles = heroSection ? window.getComputedStyle(heroSection) : null;
+  const heroVerticalSpacing = heroStyles
+    ? Math.ceil(
+        parseFloat(heroStyles.marginTop)
+          + parseFloat(heroStyles.paddingTop)
+          + parseFloat(heroStyles.paddingBottom),
+      )
+    : 0;
+
+  if (window.innerWidth > 1080) {
+    const heroVisibleHeight = Math.max(
+      0,
+      window.innerHeight - topbarHeight - headerHeight - categoryNavHeight - heroVerticalSpacing,
+    );
+
+    document.documentElement.style.setProperty('--hero-media-height', `${heroVisibleHeight}px`);
+  } else {
+    document.documentElement.style.removeProperty('--hero-media-height');
+  }
 
   if (window.innerWidth <= 720) {
     document.documentElement.style.removeProperty('--category-nav-offset');

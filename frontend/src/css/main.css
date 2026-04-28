@@ -294,9 +294,11 @@ button {
 .hero__panel {
   position: relative;
   overflow: hidden;
-  min-height: 420px;
+  min-height: var(--hero-media-height, 420px);
   padding: 0;
-  background: url('../assets/images/bannerSemBotao.png') 38% center/cover no-repeat;
+  background:
+    url('../assets/images/bannerSemBotao.png') center/contain no-repeat,
+    linear-gradient(145deg, #173456, #0d223b);
 }
 
 .eyebrow {
@@ -346,7 +348,7 @@ button {
 }
 
 .hero__visual {
-  min-height: 420px;
+  min-height: var(--hero-media-height, 420px);
   background: url('../assets/images/bannerAssaid.png') center/contain no-repeat #fff;
 }
 
@@ -1506,7 +1508,7 @@ button {
 
   .hero__panel {
     min-height: 320px;
-    background-position: 42% center;
+    background-position: center;
   }
 
   .hero__visual {
