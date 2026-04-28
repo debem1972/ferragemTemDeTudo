@@ -39,6 +39,8 @@ const topbar = document.querySelector('.topbar');
 const siteHeader = document.querySelector('.header');
 const categoryNav = document.querySelector('.category-nav');
 const heroSection = document.querySelector('.hero');
+const backToHome = document.querySelector('.back-to-home');
+const backToHomeButton = document.querySelector('[data-back-to-home]');
 
 function formatPrice(value) {
   return new Intl.NumberFormat('pt-BR', {
@@ -345,6 +347,25 @@ function openCart() {
   document.body.classList.add('has-cart-open');
 }
 
+function syncBackToHomeVisibility() {
+  if (!backToHome) {
+    return;
+  }
+
+  const revealThreshold = heroSection ? Math.max(heroSection.offsetHeight * 0.35, 280) : 280;
+  const isVisible = window.scrollY > revealThreshold;
+
+  backToHome.classList.toggle('is-visible', isVisible);
+  backToHome.setAttribute('aria-hidden', String(!isVisible));
+}
+
+function scrollToInitialHeroState() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+}
+
 function closeCart() {
   if (!cartPanel) {
     return;
@@ -583,6 +604,8 @@ accountCtaButton?.addEventListener('click', () => {
   alert('Na proxima etapa vamos criar login/cadastro e uma pagina propria de checkout.');
 });
 
+backToHomeButton?.addEventListener('click', scrollToInitialHeroState);
+
 window.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     closeCart();
@@ -591,7 +614,10 @@ window.addEventListener('keydown', (event) => {
 
 window.addEventListener('resize', () => {
   renderProducts(state.filteredProducts);
+  syncBackToHomeVisibility();
 });
+
+window.addEventListener('scroll', syncBackToHomeVisibility, { passive: true });
 
 const revealElements = document.querySelectorAll(
   '.hero__panel, .hero__visual, .product-card, .security-card, .reason-card',
@@ -616,6 +642,7 @@ revealElements.forEach((element, index) => {
 });
 
 syncLayoutOffsets();
+syncBackToHomeVisibility();
 window.addEventListener('load', syncLayoutOffsets);
 window.addEventListener('resize', syncLayoutOffsets);
 
