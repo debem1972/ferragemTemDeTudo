@@ -572,7 +572,7 @@ window.addEventListener('resize', () => {
 });
 
 const revealElements = document.querySelectorAll(
-  '.hero__panel, .hero__visual, .category-card, .product-card, .security-card, .reason-card',
+  '.hero__panel, .hero__visual, .product-card, .security-card, .reason-card',
 );
 
 const observer = new IntersectionObserver(

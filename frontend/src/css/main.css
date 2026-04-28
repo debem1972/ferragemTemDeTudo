@@ -286,8 +286,7 @@ button {
 .hero__panel,
 .hero__visual,
 .offers__grid article,
-.security-card,
-.category-card {
+.security-card {
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-card);
 }
@@ -373,7 +372,6 @@ button {
   color: var(--color-navy);
 }
 
-.categories,
 .offers,
 .catalog,
 .product-focus,
@@ -387,26 +385,18 @@ button {
   scroll-margin-top: var(--catalog-scroll-offset);
 }
 
-.categories__grid,
 .offers__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem;
 }
 
-.category-card,
 .product-card,
 .security-card {
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.94);
 }
 
-.category-card {
-  position: relative;
-  overflow: hidden;
-}
-
-.category-card__media,
 .product-card__media,
 .catalog-card__media {
   position: relative;
@@ -414,21 +404,6 @@ button {
   border-radius: 22px;
 }
 
-.category-card__media {
-  display: grid;
-  place-items: center;
-  min-height: 150px;
-  margin-bottom: 1.15rem;
-}
-
-.category-card__media i {
-  position: relative;
-  z-index: 1;
-  font-size: 3rem;
-  color: var(--color-white);
-}
-
-.category-card__media::after,
 .product-card__media::after,
 .catalog-card__media::after,
 .product-focus__media::after {
@@ -442,39 +417,33 @@ button {
   transform: rotate(24deg);
 }
 
-.category-card__media--tool,
 .product-card__media--tool,
 .catalog-card__media--tool,
 .product-focus__media[data-visual='tool'] {
   background: linear-gradient(145deg, #21456f, #0f2744);
 }
 
-.category-card__media--electric,
 .catalog-card__media--electric,
 .product-focus__media[data-visual='electric'] {
   background: linear-gradient(145deg, #f2b705, #e67d11);
 }
 
-.category-card__media--water,
 .catalog-card__media--water,
 .product-focus__media[data-visual='water'] {
   background: linear-gradient(145deg, #0b7ac4, #49b4d6);
 }
 
-.category-card__media--hardware,
 .catalog-card__media--box,
 .product-focus__media[data-visual='box'] {
   background: linear-gradient(145deg, #5b6675, #253242);
 }
 
-.category-card__media--solar,
 .product-card__media--solar,
 .catalog-card__media--solar,
 .product-focus__media[data-visual='solar'] {
   background: linear-gradient(145deg, #f29f05, #f2d16b);
 }
 
-.category-card__media--charge,
 .catalog-card__media--driver,
 .product-focus__media[data-visual='driver'] {
   background: linear-gradient(145deg, #0d9276, #39c6aa);
@@ -496,39 +465,12 @@ button {
   background: linear-gradient(145deg, #f4f6fb, #d7deea);
 }
 
-.category-card::after {
-  content: '';
-  position: absolute;
-  inset: auto -18px -26px auto;
-  width: 92px;
-  height: 92px;
-  border-radius: 24px;
-  background: rgba(242, 183, 5, 0.16);
-  transform: rotate(16deg);
-}
-
-.category-card__icon {
-  display: inline-flex;
-  width: 54px;
-  height: 54px;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-  border-radius: 16px;
-  background: var(--color-navy);
-  color: var(--color-gold);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-}
-
-.category-card h3,
 .product-card h3 {
   margin: 0 0 0.7rem;
   font-family: 'Montserrat', sans-serif;
   color: var(--color-navy);
 }
 
-.category-card p,
 .product-card p,
 .security-card p,
 .reason-card p {
@@ -1455,7 +1397,6 @@ button {
   .hero,
   .product-focus,
   .reasons,
-  .categories__grid,
   .offers__grid,
   .reasons__grid {
     grid-template-columns: 1fr;
@@ -1545,7 +1486,6 @@ button {
 
   .hero__panel,
   .hero__visual,
-  .category-card,
   .product-card,
   .catalog__shell,
   .product-focus__media,
