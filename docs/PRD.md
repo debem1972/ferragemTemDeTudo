@@ -33,13 +33,21 @@ Estrutura realista de e-commerce
 ### Catálogo
 
 -   Listagem de produtos
+-   Imagem, descrição, preço, estoque
 -   Filtros por categoria
 -   Busca por nome
 
-### Produto
+### Ofertas
 
--   Página detalhada
--   Imagem, descrição, preço, estoque
+-   Página detalhada das ofertas
+-   Imagem, descrição, preço real, preço promo
+-   Filtros por categoria
+-   Busca por nome
+
+### Destaques
+
+-   Produtos em destaque na loja
+-   Lançamentos no mercado
 
 ### Carrinho
 
