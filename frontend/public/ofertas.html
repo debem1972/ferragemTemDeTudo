@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promocoes | temDeTudo Ferragem</title>
+  <meta
+    name="description"
+    content="Pagina de promocoes da temDeTudo Ferragem com filtros laterais, grid de produtos e estrutura pronta para evoluir com CRUD."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../src/css/main.css" />
+  <link rel="stylesheet" href="../src/css/offers.css" />
+</head>
+
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="topbar__inner container">
+        <p class="topbar__item"><i class="bi bi-truck"></i> Entrega para todo o Brasil</p>
+        <p class="topbar__item">
+          <i class="bi bi-shield-check"></i> Produtos de qualidade
+        </p>
+        <p class="topbar__item">
+          <i class="bi bi-headset"></i> Atendimento especializado
+        </p>
+      </div>
+    </header>
+
+    <header class="header">
+      <div class="header__inner container">
+        <a class="brand" href="./index.html#home" aria-label="Voltar para a pagina inicial da temDeTudo Ferragem">
+          <img src="../src/assets/images/temdeTudoVariacaoFundoEscuroSem.png" alt="temDeTudo Ferragem" />
+        </a>
+
+        <form class="search" role="search" data-header-search>
+          <label class="sr-only" for="offers-header-search">Buscar produtos em promocao</label>
+          <input
+            id="offers-header-search"
+            name="offers-header-search"
+            type="search"
+            placeholder="Buscar nas promocoes"
+          />
+          <button type="submit" aria-label="Buscar nas promocoes">
+            <i class="bi bi-search"></i>
+          </button>
+        </form>
+
+        <nav class="header__actions" aria-label="Acoes rapidas">
+          <a href="./index.html#home">
+            <i class="bi bi-house-door"></i>
+            <span>Home</span>
+          </a>
+          <button class="header__cart-link header__cart-button" type="button" data-cart-open>
+            <i class="bi bi-cart3"></i>
+            <span>Carrinho</span>
+            <span class="header__cart-badge" data-cart-count>0</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="category-nav">
+      <div class="category-nav__inner container">
+        <a href="./index.html#catalogo"><i class="bi bi-grid"></i> Catalogo</a>
+        <a href="#promocoes-listagem" data-nav-filter="ferramentas"><i class="bi bi-tools"></i> Ferramentas</a>
+        <a href="#promocoes-listagem" data-nav-filter="eletrica"><i class="bi bi-lightning-charge"></i> Eletrica</a>
+        <a href="#promocoes-listagem" data-nav-filter="hidraulica"><i class="bi bi-droplet"></i> Hidraulica</a>
+        <a href="#promocoes-listagem" data-nav-filter="ferragens"><i class="bi bi-gear"></i> Ferragens</a>
+        <a href="#promocoes-listagem" data-nav-filter="energia-solar"><i class="bi bi-sun"></i> Energia Solar</a>
+        <a href="./ofertas.html" class="highlight-link" aria-current="page"><i class="bi bi-tag"></i> Promocoes</a>
+      </div>
+    </nav>
+
+    <main class="offers-page">
+      <div class="offers-page__container container">
+        <section class="offers-page__controls">
+          <div class="offers-breadcrumb" aria-label="Breadcrumb">
+            <a href="./index.html#home">Pagina inicial</a>
+            <i class="bi bi-chevron-right" aria-hidden="true"></i>
+            <span>Promocoes</span>
+          </div>
+
+          <div class="offers-topbar">
+            <div class="offers-topbar__search">
+              <label class="sr-only" for="offers-search">Buscar por produto ou categoria</label>
+              <i class="bi bi-search" aria-hidden="true"></i>
+              <input
+                id="offers-search"
+                type="search"
+                placeholder="Buscar por produto, categoria ou destaque"
+                data-offers-search
+              />
+            </div>
+
+            <div class="offers-topbar__sort">
+              <span>Ordenar por</span>
+              <label>
+                <select data-offers-sort>
+                  <option value="discount">Maior desconto</option>
+                  <option value="lowest">Menor preco</option>
+                  <option value="highest">Maior preco</option>
+                  <option value="name">Nome</option>
+                </select>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section class="offers-layout" id="promocoes-listagem">
+          <aside class="offers-sidebar" aria-label="Filtros de promocoes">
+            <div class="offers-sidebar__heading">
+              <h1>Promocoes</h1>
+              <p data-offers-count>0 produtos encontrados</p>
+              <button class="offers-sidebar__clear" type="button" data-clear-offers-filters>Limpar filtros</button>
+            </div>
+
+            <div class="offers-sidebar__group">
+              <div class="offers-sidebar__group-head">
+                <h2>Busca</h2>
+              </div>
+              <div class="offers-sidebar__search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input
+                  type="search"
+                  placeholder="Nome, categoria ou destaque"
+                  data-sidebar-search
+                />
+              </div>
+            </div>
+
+            <div class="offers-sidebar__group">
+              <div class="offers-sidebar__group-head">
+                <h2>Categorias</h2>
+              </div>
+              <div class="offers-sidebar__chips" aria-label="Categorias promocionais">
+                <button class="chip is-active" type="button" data-offers-filter="all">Todos</button>
+                <button class="chip" type="button" data-offers-filter="ferramentas">Ferramentas</button>
+                <button class="chip" type="button" data-offers-filter="eletrica">Eletrica</button>
+                <button class="chip" type="button" data-offers-filter="hidraulica">Hidraulica</button>
+                <button class="chip" type="button" data-offers-filter="ferragens">Ferragens</button>
+                <button class="chip" type="button" data-offers-filter="energia-solar">Energia solar</button>
+              </div>
+            </div>
+
+            <div class="offers-sidebar__group">
+              <div class="offers-sidebar__group-head">
+                <h2>Faixa de preco promocional</h2>
+              </div>
+              <div class="offers-sidebar__price">
+                <label>
+                  <span>Minimo</span>
+                  <input type="number" min="0" step="0.01" placeholder="0,00" data-price-min />
+                </label>
+                <label>
+                  <span>Maximo</span>
+                  <input type="number" min="0" step="0.01" placeholder="9999,99" data-price-max />
+                </label>
+              </div>
+            </div>
+
+            <div class="offers-sidebar__group">
+              <div class="offers-sidebar__group-head">
+                <h2>Destaques</h2>
+              </div>
+              <ul class="offers-sidebar__list">
+                <li>Preco original riscado + valor promocional</li>
+                <li>Favoritar direto no card</li>
+                <li>Estrutura pronta para CRUD administrativo</li>
+              </ul>
+            </div>
+          </aside>
+
+          <div class="offers-catalog">
+            <div class="offers-catalog__meta">
+              <p>Promocoes pensadas para compra mais direta, sem etapas desnecessarias.</p>
+            </div>
+            <div class="offers-grid" data-offers-grid></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div class="cart-drawer" data-cart-panel aria-hidden="true">
+      <div class="cart-drawer__overlay" data-cart-close></div>
+      <aside class="cart-drawer__content" aria-label="Carrinho">
+        <div class="cart-drawer__header">
+          <div>
+            <p class="eyebrow">Carrinho</p>
+            <h2>Promocoes selecionadas</h2>
+          </div>
+          <button class="cart-drawer__close" type="button" aria-label="Fechar carrinho" data-cart-close>
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+
+        <p class="cart-drawer__intro">
+          A listagem promocional ja esta pronta para crescer com o CRUD e depois integrar checkout,
+          login e persistencia por usuario.
+        </p>
+
+        <div class="cart-list" data-cart-list>
+          <p class="empty-state">Seu carrinho de promocoes ainda esta vazio.</p>
+        </div>
+
+        <div class="cart-drawer__footer">
+          <div class="cart-drawer__total">
+            <span>Subtotal</span>
+            <strong data-cart-total>R$ 0,00</strong>
+          </div>
+          <div class="cart-drawer__actions">
+            <button class="text-button" type="button" data-clear-cart>Limpar</button>
+            <button class="button button--primary" type="button" data-account-cta>
+              Finalizar depois
+            </button>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <aside class="back-to-home" aria-hidden="true">
+      <button
+        class="back-to-home__button"
+        type="button"
+        title="Voltar ao topo"
+        aria-label="Voltar ao topo da pagina de promocoes"
+        data-back-to-home
+      >
+        <i class="bi bi-house-door-fill" aria-hidden="true"></i>
+      </button>
+    </aside>
+  </div>
+
+  <script type="module" src="../src/js/offers.js"></script>
+</body>
+
+</html>

@@ -11,7 +11,6 @@ const state = {
 };
 
 const searchForm = document.querySelector('.search');
-const offersGrid = document.querySelector('.offers__grid');
 const productGrid = document.querySelector('[data-product-grid]');
 const productCount = document.querySelector('[data-product-count]');
 const carouselViewport = document.querySelector('.catalog__viewport');
@@ -38,6 +37,7 @@ const plpLinks = document.querySelectorAll('[data-plp-link]');
 const topbar = document.querySelector('.topbar');
 const siteHeader = document.querySelector('.header');
 const categoryNav = document.querySelector('.category-nav');
+const categoryNavLinks = document.querySelectorAll('[data-nav-filter]');
 const heroSection = document.querySelector('.hero');
 const backToHome = document.querySelector('.back-to-home');
 const backToHomeButton = document.querySelector('[data-back-to-home]');
@@ -489,29 +489,16 @@ filterButtons.forEach((button) => {
   });
 });
 
-productGrid?.addEventListener('click', (event) => {
-  const target = event.target;
-
-  if (!(target instanceof HTMLElement)) {
-    return;
-  }
-
-  const addButton = target.closest('[data-add-to-cart]');
-  const focusButton = target.closest('[data-focus-product]');
-
-  if (focusButton instanceof HTMLElement) {
-    const product = state.products.find((item) => item.id === Number(focusButton.dataset.focusProduct));
-    renderFocusedProduct(product);
-    document.querySelector('#produto')?.scrollIntoView({ behavior: 'smooth' });
-    return;
-  }
-
-  if (addButton instanceof HTMLElement) {
-    addToCart(addButton.dataset.addToCart);
-  }
+categoryNavLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    const filter = link.dataset.navFilter || 'all';
+    applyFilter(filter);
+    document.querySelector('#catalogo')?.scrollIntoView({ behavior: 'smooth' });
+  });
 });
 
-offersGrid?.addEventListener('click', (event) => {
+productGrid?.addEventListener('click', (event) => {
   const target = event.target;
 
   if (!(target instanceof HTMLElement)) {

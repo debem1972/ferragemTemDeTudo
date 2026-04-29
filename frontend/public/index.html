@@ -60,20 +60,20 @@
 
     <nav class="category-nav">
       <div class="category-nav__inner container">
-        <a href="#catalogo"><i class="bi bi-grid"></i> Todas as Categorias</a>
-        <a href="#ferramentas"><i class="bi bi-tools"></i> Ferramentas</a>
-        <a href="#eletrica"><i class="bi bi-lightning-charge"></i> Eletrica</a>
-        <a href="#hidraulica"><i class="bi bi-droplet"></i> Hidraulica</a>
-        <a href="#ferragens"><i class="bi bi-gear"></i> Ferragens</a>
-        <a href="#solar"><i class="bi bi-sun"></i> Energia Solar</a>
-        <a href="#ofertas" class="highlight-link"><i class="bi bi-tag"></i> Ofertas</a>
+        <a href="#catalogo" data-nav-filter="all"><i class="bi bi-grid"></i> Todas as Categorias</a>
+        <a href="#catalogo" data-nav-filter="ferramentas"><i class="bi bi-tools"></i> Ferramentas</a>
+        <a href="#catalogo" data-nav-filter="eletrica"><i class="bi bi-lightning-charge"></i> Eletrica</a>
+        <a href="#catalogo" data-nav-filter="hidraulica"><i class="bi bi-droplet"></i> Hidraulica</a>
+        <a href="#catalogo" data-nav-filter="ferragens"><i class="bi bi-gear"></i> Ferragens</a>
+        <a href="#catalogo" data-nav-filter="energia-solar"><i class="bi bi-sun"></i> Energia Solar</a>
+        <a href="./ofertas.html" class="highlight-link"><i class="bi bi-tag"></i> Ofertas</a>
       </div>
     </nav>
 
     <main id="home">
       <section class="hero container">
         <div class="hero__panel">
-          <a class="button button--primary hero__cta" href="#ofertas">
+          <a class="button button--primary hero__cta" href="./ofertas.html">
             Confira as ofertas <i class="bi bi-arrow-right"></i>
           </a>
         </div>
@@ -81,49 +81,44 @@
         <div class="hero__visual" aria-hidden="true"></div>
       </section>
 
-      <section class="offers container" id="ofertas">
-        <div class="section-heading">
-          <p class="eyebrow">Destaques da vitrine</p>
-          <h2>Oferta visual e comercial para puxar conversao logo na home</h2>
-        </div>
-
-        <div class="offers__grid">
-          <article class="product-card product-card--featured">
-            <div class="product-card__media product-card__media--featured" aria-hidden="true"></div>
-            <span class="product-card__tag">Mais buscado</span>
-            <h3>Kit profissional de instalacao</h3>
+      <section class="offers container">
+        <article class="offers-banner">
+          <div class="offers-banner__copy">
+            <p class="eyebrow">Ofertas em pagina propria</p>
+            <h2>Promocoes mais objetivas, menos cliques e mais chance de conversao</h2>
             <p>
-              Caixa organizadora, furadeira, cabos e componentes para quem quer
-              agilidade na obra.
+              A vitrine de ofertas agora segue para uma pagina dedicada, com filtros,
+              cards completos e estrutura pronta para o admin cadastrar, editar e deletar produtos.
             </p>
-            <strong>R$ 459,90</strong>
-            <button class="button button--primary" type="button" data-add-to-cart="1">
-              Adicionar ao carrinho
-            </button>
-          </article>
+          </div>
 
-          <article class="product-card">
-            <div class="product-card__media product-card__media--solar" aria-hidden="true"></div>
-            <span class="product-card__tag">Energia solar</span>
-            <h3>Painel monocristalino 550W</h3>
-            <p>Alta eficiencia para projetos residenciais e comerciais.</p>
-            <strong>R$ 1.249,00</strong>
-            <button class="button button--secondary" type="button" data-focus-product="5">
-              Ver detalhes
-            </button>
-          </article>
+          <div class="offers-banner__highlights" aria-label="Beneficios da nova pagina de ofertas">
+            <article class="offers-banner__item">
+              <i class="bi bi-layout-three-columns"></i>
+              <strong>Grid escalavel</strong>
+              <span>Layout em 3 colunas para crescer com o catalogo promocional.</span>
+            </article>
 
-          <article class="product-card">
-            <div class="product-card__media product-card__media--tool" aria-hidden="true"></div>
-            <span class="product-card__tag">Ferramenta eletrica</span>
-            <h3>Furadeira de impacto 750W</h3>
-            <p>Potencia e precisao para diferentes superficies e usos.</p>
-            <strong>R$ 329,90</strong>
-            <button class="button button--secondary" type="button" data-focus-product="1">
-              Ver detalhes
-            </button>
-          </article>
-        </div>
+            <article class="offers-banner__item">
+              <i class="bi bi-funnel"></i>
+              <strong>Filtros rapidos</strong>
+              <span>Busca por categoria, nome e ordenacao para encontrar a oferta certa.</span>
+            </article>
+
+            <article class="offers-banner__item">
+              <i class="bi bi-cart-check"></i>
+              <strong>Compra direta</strong>
+              <span>Preco original, promocional e acao de carrinho no mesmo card.</span>
+            </article>
+          </div>
+
+          <div class="offers-banner__actions">
+            <a class="button button--primary" href="./ofertas.html">
+              Abrir pagina de ofertas <i class="bi bi-arrow-right"></i>
+            </a>
+            <a class="offers-banner__link" href="#catalogo">Continuar na vitrine principal</a>
+          </div>
+        </article>
       </section>
 
       <section class="catalog container" id="catalogo">

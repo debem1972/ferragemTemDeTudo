@@ -171,6 +171,144 @@ const mockProducts = [
   },
 ];
 
+const offerProducts = [
+  {
+    id: 101,
+    nome: 'Parafusadeira Eletrica 20V',
+    categoria: 'ferramentas',
+    categoriaLabel: 'Ferramentas',
+    descricao: 'Modelo versatil para montagens, reparos e manutencoes com autonomia no uso diario.',
+    precoOriginal: 459.9,
+    precoPromocional: 379.9,
+    imagem: '../src/assets/images/produtos/ferramentas/parafusadeiraEletrica.jpeg',
+    destaque: 'Oferta relampago',
+    estoqueLabel: 'Pronta entrega',
+  },
+  {
+    id: 102,
+    nome: 'Box Organizador Profissional',
+    categoria: 'ferramentas',
+    categoriaLabel: 'Ferramentas',
+    descricao: 'Caixa reforcada para organizar ferramentas, pecas e acessorios com mais praticidade.',
+    precoOriginal: 229.9,
+    precoPromocional: 189.9,
+    imagem: '../src/assets/images/produtos/ferramentas/ferramentasBoxOrganizer.jpeg',
+    destaque: 'Mais vendido',
+    estoqueLabel: 'Estoque local',
+  },
+  {
+    id: 103,
+    nome: 'Disjuntor com Trilho DIN',
+    categoria: 'eletrica',
+    categoriaLabel: 'Eletrica',
+    descricao: 'Protecao confiavel para quadros residenciais e comerciais com instalacao objetiva.',
+    precoOriginal: 58.9,
+    precoPromocional: 44.9,
+    imagem: '../src/assets/images/produtos/eletricos/disjuntorTrilhoDim.jpeg',
+    destaque: 'Preco especial',
+    estoqueLabel: 'Envio imediato',
+  },
+  {
+    id: 104,
+    nome: 'DPS para Protecao Eletrica',
+    categoria: 'eletrica',
+    categoriaLabel: 'Eletrica',
+    descricao: 'Seguranca extra contra surtos eletricos para instalacoes mais protegidas.',
+    precoOriginal: 89.9,
+    precoPromocional: 69.9,
+    imagem: '../src/assets/images/produtos/eletricos/dps.jpeg',
+    destaque: 'Ultimas unidades',
+    estoqueLabel: 'Pronta entrega',
+  },
+  {
+    id: 105,
+    nome: 'Estacao Solar Compacta',
+    categoria: 'energia-solar',
+    categoriaLabel: 'Energia solar',
+    descricao: 'Solucao compacta para projetos de geracao com visual tecnico e instalacao eficiente.',
+    precoOriginal: 2499,
+    precoPromocional: 2149,
+    imagem: '../src/assets/images/produtos/energia-solar/estacaoSolar.jpeg',
+    destaque: 'Energia solar',
+    estoqueLabel: 'Sob consulta',
+  },
+  {
+    id: 106,
+    nome: 'Painel Solar Fotovoltaico',
+    categoria: 'energia-solar',
+    categoriaLabel: 'Energia solar',
+    descricao: 'Placa de alta eficiencia para composicao de sistemas residenciais e comerciais.',
+    precoOriginal: 1399,
+    precoPromocional: 1199,
+    imagem: '../src/assets/images/produtos/energia-solar/painelSolar.jpeg',
+    destaque: 'Maior desconto',
+    estoqueLabel: 'Entrega programada',
+  },
+  {
+    id: 107,
+    nome: 'Dobradica Inox Reforcada',
+    categoria: 'ferragens',
+    categoriaLabel: 'Ferragens',
+    descricao: 'Acabamento resistente para portas e moveis com excelente durabilidade.',
+    precoOriginal: 34.9,
+    precoPromocional: 27.9,
+    imagem: '../src/assets/images/produtos/ferragens/dobradicaInox.jpeg',
+    destaque: 'Acabamento premium',
+    estoqueLabel: 'Estoque de giro',
+  },
+  {
+    id: 108,
+    nome: 'Fechadura Interna para Madeira',
+    categoria: 'ferragens',
+    categoriaLabel: 'Ferragens',
+    descricao: 'Fechadura pratica para ambientes internos com instalacao simples e visual limpo.',
+    precoOriginal: 96.9,
+    precoPromocional: 74.9,
+    imagem: '../src/assets/images/produtos/ferragens/fechaduraInternaMadeira.jpeg',
+    destaque: 'Oferta da semana',
+    estoqueLabel: 'Pronta entrega',
+  },
+  {
+    id: 109,
+    nome: 'Joelho 90 PVC Soldavel',
+    categoria: 'hidraulica',
+    categoriaLabel: 'Hidraulica',
+    descricao: 'Conexao pratica para ajustes de direcao em instalacoes hidraulicas residenciais.',
+    precoOriginal: 8.9,
+    precoPromocional: 6.9,
+    imagem: '../src/assets/images/produtos/hidraulicos/joelho90pvc.jpeg',
+    destaque: 'Preco baixo',
+    estoqueLabel: 'Envio imediato',
+  },
+  {
+    id: 110,
+    nome: 'Luva 3/4 com Rosca',
+    categoria: 'hidraulica',
+    categoriaLabel: 'Hidraulica',
+    descricao: 'Peca para uniao segura em pontos de rosca com vedacao confiavel.',
+    precoOriginal: 11.9,
+    precoPromocional: 8.9,
+    imagem: '../src/assets/images/produtos/hidraulicos/luva3-4ComRosca.jpeg',
+    destaque: 'Item essencial',
+    estoqueLabel: 'Estoque local',
+  },
+];
+
 export async function getProducts() {
   return Promise.resolve(mockProducts);
+}
+
+export async function getOfferProducts() {
+  return Promise.resolve(
+    offerProducts.map((product) => {
+      const discountValue = product.precoOriginal - product.precoPromocional;
+      const discountPercentage = Math.round((discountValue / product.precoOriginal) * 100);
+
+      return {
+        ...product,
+        descontoPercentual: discountPercentage,
+        economia: discountValue,
+      };
+    }),
+  );
 }
