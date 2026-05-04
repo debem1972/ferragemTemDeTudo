@@ -1034,10 +1034,10 @@ button {
 
 .catalog-card {
   display: grid;
-  grid-template-columns: minmax(200px, 0.95fr) minmax(0, 1.05fr);
+  grid-template-columns: minmax(180px, 0.88fr) minmax(0, 1.12fr);
   flex: 0 0 auto;
   gap: 1.15rem;
-  min-height: 294px;
+  min-height: 340px;
   padding: 0.9rem;
   border-radius: 28px;
   background: rgba(255, 255, 255, 0.98);
@@ -1048,11 +1048,17 @@ button {
 .catalog-card__media {
   position: relative;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: stretch;
   justify-content: space-between;
   min-height: 100%;
   padding: 1rem;
+  border-radius: 22px;
+  overflow: hidden;
   text-align: left;
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.22), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
 }
 
 .catalog-card__media span {
@@ -1078,6 +1084,16 @@ button {
   color: rgba(255, 255, 255, 0.82);
 }
 
+.catalog-card__image {
+  width: 100%;
+  max-width: 220px;
+  height: 188px;
+  margin: auto auto 0;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 18px 30px rgba(15, 23, 42, 0.2));
+}
+
 .catalog-card__media--bulb .catalog-card__glyph,
 .catalog-card__media--hinge .catalog-card__glyph,
 .catalog-card__media--inverter .catalog-card__glyph {
@@ -1090,7 +1106,6 @@ button {
   gap: 0.75rem;
   min-width: 0;
   padding: 0.35rem 0.4rem 0.35rem 0;
-  overflow: hidden;
 }
 
 .catalog-card__title {
@@ -1128,6 +1143,7 @@ button {
   gap: 0.3rem;
   color: #5b6678;
   font-size: 0.76rem;
+  line-height: 1.25;
 }
 
 .catalog-card__highlight i {
@@ -1151,7 +1167,8 @@ button {
 
 .catalog-card__footer {
   margin-top: auto;
-  padding-top: 0.25rem;
+  padding-top: 0.45rem;
+  align-items: flex-end;
 }
 
 .catalog-card__footer strong {
@@ -1162,19 +1179,23 @@ button {
 
 .catalog-card__actions {
   display: flex;
+  flex-direction: column;
   gap: 0.75rem;
-  align-items: center;
+  align-items: stretch;
+  min-width: 138px;
 }
 
 .catalog-card__details {
   padding: 0;
   color: var(--color-navy);
   font-weight: 700;
+  text-align: left;
 }
 
 .catalog-card__button {
   min-height: 46px;
   gap: 0.5rem;
+  justify-content: center;
   padding-inline: 1.2rem;
 }
 
@@ -1211,6 +1232,7 @@ button {
 }
 
 .product-focus__media {
+  position: relative;
   min-height: 420px;
   padding: 1.5rem;
   background:
@@ -1218,7 +1240,22 @@ button {
     linear-gradient(145deg, rgba(242, 183, 5, 0.16), transparent 35%);
 }
 
+.product-focus__media::before {
+  content: '';
+  position: absolute;
+  inset: 1.5rem;
+  border-radius: 28px;
+  background-image: var(--product-focus-image, none);
+  background-repeat: no-repeat;
+  background-position: right 1.5rem center;
+  background-size: min(48%, 260px);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
 .product-focus__panel {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

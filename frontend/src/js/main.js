@@ -64,6 +64,9 @@ function renderFocusedProduct(product) {
   focusDescription.textContent = product.descricao;
   focusPrice.textContent = formatPrice(product.preco);
   focusMedia?.setAttribute('data-visual', product.visual || 'tool');
+  if (focusMedia instanceof HTMLElement) {
+    focusMedia.style.setProperty('--product-focus-image', product.imagem ? `url("${product.imagem}")` : 'none');
+  }
   focusSpecs.innerHTML = `
     <li>Categoria: ${product.categoriaLabel || product.categoria}</li>
     <li>Entrega estimada: ${product.entrega}</li>
@@ -203,7 +206,11 @@ function renderProducts(products) {
             data-focus-product="${product.id}"
           >
             <span>${product.categoriaLabel || product.categoria}</span>
-            <i class="bi ${getVisualIcon(product.visual)} catalog-card__glyph" aria-hidden="true"></i>
+            ${
+              product.imagem
+                ? `<img class="catalog-card__image" src="${product.imagem}" alt="${product.nome}" loading="lazy" />`
+                : `<i class="bi ${getVisualIcon(product.visual)} catalog-card__glyph" aria-hidden="true"></i>`
+            }
           </button>
 
           <div class="catalog-card__body">
