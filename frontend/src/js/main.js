@@ -49,6 +49,29 @@ function formatPrice(value) {
   }).format(value);
 }
 
+function getInstallmentCount(price) {
+  if (price >= 1200) {
+    return 6;
+  }
+
+  if (price >= 350) {
+    return 5;
+  }
+
+  if (price >= 150) {
+    return 4;
+  }
+
+  return 3;
+}
+
+function getInstallmentLabel(price) {
+  const count = getInstallmentCount(price);
+  const installmentValue = price / count;
+
+  return `${count}x de ${formatPrice(installmentValue)} sem juros`;
+}
+
 function getCartSubtotal() {
   return state.cart.reduce((sum, item) => sum + item.preco * item.quantidade, 0);
 }
@@ -94,6 +117,10 @@ function getVisualIcon(visual) {
 function getItemsPerView() {
   if (window.innerWidth <= 720) {
     return 1;
+  }
+
+  if (window.innerWidth >= 1480) {
+    return 4;
   }
 
   if (window.innerWidth <= 1180) {
@@ -205,7 +232,10 @@ function renderProducts(products) {
             aria-label="Ver detalhes de ${product.nome}"
             data-focus-product="${product.id}"
           >
-            <span>${product.categoriaLabel || product.categoria}</span>
+            <span class="catalog-card__category">${(product.categoriaLabel || product.categoria).toUpperCase()}</span>
+            <span class="catalog-card__stamp" aria-hidden="true">
+              <i class="bi bi-lightning-charge-fill"></i>
+            </span>
             ${
               product.imagem
                 ? `<img class="catalog-card__image" src="${product.imagem}" alt="${product.nome}" loading="lazy" />`
@@ -214,7 +244,6 @@ function renderProducts(products) {
           </button>
 
           <div class="catalog-card__body">
-            <span class="product-card__tag">${product.badge}</span>
             <button
               class="catalog-card__title"
               type="button"
@@ -239,15 +268,21 @@ function renderProducts(products) {
             </div>
 
             <div class="catalog-card__footer">
-              <strong>${formatPrice(product.preco)}</strong>
+              <div class="catalog-card__pricing">
+                <strong>${formatPrice(product.preco)}</strong>
+                <span>${getInstallmentLabel(product.preco)}</span>
+              </div>
               <div class="catalog-card__actions">
-                <button class="catalog-card__details" type="button" data-focus-product="${product.id}">
-                  Ver detalhes
-                </button>
                 <button class="button button--primary catalog-card__button" type="button" data-add-to-cart="${product.id}">
                   Comprar <i class="bi bi-cart3"></i>
                 </button>
               </div>
+            </div>
+
+            <div class="catalog-card__trust">
+              <span><i class="bi bi-shield-check"></i>Qualidade garantida</span>
+              <span><i class="bi bi-truck"></i>Entrega para todo o Brasil</span>
+              <span><i class="bi bi-headset"></i>Atendimento especializado</span>
             </div>
           </div>
         </article>
