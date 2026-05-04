@@ -104,7 +104,7 @@ function getItemsPerView() {
 }
 
 function getCuratedProducts(products) {
-  return products.slice(0, 10);
+  return products.slice(0, 11);
 }
 
 function getDisplayProducts() {
@@ -198,7 +198,7 @@ function renderProducts(products) {
   productGrid.innerHTML = products
     .map(
       (product) => `
-        <article class="catalog-card reveal is-visible">
+        <article class="catalog-card catalog-card--${product.categoria} reveal is-visible">
           <button
             class="catalog-card__media catalog-card__media--${product.visual || 'tool'}"
             type="button"
