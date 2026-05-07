@@ -1086,11 +1086,31 @@ button {
   opacity: 0.58;
 }
 
-.catalog-card__category {
+/*.catalog-card__category {
   position: relative;
   z-index: 1;
   display: inline-flex;
   align-self: flex-start;
+  padding: 0.42rem 0.82rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #123965, #0b2e57);
+  color: var(--color-white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  box-shadow: 0 12px 26px rgba(11, 46, 87, 0.2);
+}*/
+/* DEPOIS */
+.catalog-card__category {
+  position: absolute;
+  /* ← tira do fluxo flex */
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  display: inline-flex;
+  /* remova: align-self: flex-start */
   padding: 0.42rem 0.82rem;
   border-radius: 999px;
   background: linear-gradient(180deg, #123965, #0b2e57);
@@ -1150,9 +1170,18 @@ button {
   color: rgba(30, 58, 95, 0.3);
 }
 
-.catalog-card__body {
+/*.catalog-card__body {
   display: grid;
   align-content: start;
+  gap: 0.8rem;
+  min-width: 0;
+  padding: 0.95rem 1.2rem 0;
+}*/
+/* DEPOIS */
+.catalog-card__body {
+  display: flex;
+  /* ← era grid */
+  flex-direction: column;
   gap: 0.8rem;
   min-width: 0;
   padding: 0.95rem 1.2rem 0;
@@ -1269,11 +1298,22 @@ button {
   font-weight: 800;
 }
 
-.catalog-card__trust {
+/*.catalog-card__trust {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
   margin: -0.1rem -1.2rem 0;
+  padding: 0.78rem 0.9rem 0.82rem;
+  background: linear-gradient(180deg, #123965, #0b2e57);
+  color: var(--color-white);
+}*/
+/* DEPOIS */
+.catalog-card__trust {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: 0.5rem -1.2rem -0.1rem;
+  /* ← negativo também embaixo para grudar no fundo */
   padding: 0.78rem 0.9rem 0.82rem;
   background: linear-gradient(180deg, #123965, #0b2e57);
   color: var(--color-white);

@@ -10,7 +10,7 @@ const mockProducts = [
     estoqueLabel: 'Disponivel para envio imediato',
     entrega: '3 a 6 dias uteis',
     visual: 'tool',
-    imagem: '../src/assets/images/produtos/ferramentas/furadeiraDeImpacto.jpeg',
+    imagem: '../src/assets/images/produtos/ferramentas/furadeiraDeImpacto.png',
     curatedHighlights: [
       { icon: 'bi-lightning-charge', label: '750W de potencia' },
       { icon: 'bi-bullseye', label: 'Alta precisao' },
@@ -28,7 +28,7 @@ const mockProducts = [
     estoqueLabel: 'Pronta entrega',
     entrega: '2 a 5 dias uteis',
     visual: 'box',
-    imagem: '../src/assets/images/produtos/ferragens/caixaOrganizadora.jpeg',
+    imagem: '../src/assets/images/produtos/ferragens/caixaOrganizadora.png',
     curatedHighlights: [
       { icon: 'bi-box-seam', label: 'Material resistente' },
       { icon: 'bi-lock', label: 'Travas de seguranca' },
@@ -46,7 +46,7 @@ const mockProducts = [
     estoqueLabel: 'Estoque de giro continuo',
     entrega: '4 a 7 dias uteis',
     visual: 'electric',
-    imagem: '../src/assets/images/produtos/eletricos/kitDjTrilhoDin.webp',
+    imagem: '../src/assets/images/produtos/eletricos/kitDjTrilhoDin.png',
     curatedHighlights: [
       { icon: 'bi-shield-check', label: 'Seguranca certificada' },
       { icon: 'bi-tools', label: 'Facil instalacao' },
@@ -64,7 +64,7 @@ const mockProducts = [
     estoqueLabel: 'Disponivel em lote promocional',
     entrega: '3 a 5 dias uteis',
     visual: 'water',
-    imagem: '../src/assets/images/produtos/hidraulicos/conjuntoRegistros.jpg',
+    imagem: '../src/assets/images/produtos/hidraulicos/conjuntoRegistros.png',
     curatedHighlights: [
       { icon: 'bi-droplet', label: 'Vedacao confiavel' },
       { icon: 'bi-gear', label: 'Montagem pratica' },
@@ -82,7 +82,7 @@ const mockProducts = [
     estoqueLabel: 'Sob consulta para grandes projetos',
     entrega: '5 a 10 dias uteis',
     visual: 'solar',
-    imagem: '../src/assets/images/produtos/energia-solar/painelSolar.jpeg',
+    imagem: '../src/assets/images/produtos/energia-solar/painelSolar.png',
     curatedHighlights: [
       { icon: 'bi-sun', label: 'Alta eficiencia' },
       { icon: 'bi-graph-up-arrow', label: 'Maior geracao' },
@@ -100,7 +100,7 @@ const mockProducts = [
     estoqueLabel: 'Ultimas unidades do lote',
     entrega: '2 a 4 dias uteis',
     visual: 'driver',
-    imagem: '../src/assets/images/produtos/ferramentas/parafusadeiraEletrica.jpeg',
+    imagem: '../src/assets/images/produtos/ferramentas/parafusadeiraEletrica.png',
     curatedHighlights: [
       { icon: 'bi-battery-charging', label: 'Autonomia de 20V' },
       { icon: 'bi-hand-thumbs-up', label: 'Pegada ergonomica' },
@@ -118,7 +118,7 @@ const mockProducts = [
     estoqueLabel: 'Disponivel para pronta entrega',
     entrega: '2 a 5 dias uteis',
     visual: 'bulb',
-    imagem: '../src/assets/images/produtos/eletricos/lampada9wLed.jpeg',
+    imagem: '../src/assets/images/produtos/eletricos/lampada9wLed.png',
     curatedHighlights: [
       { icon: 'bi-lightbulb', label: 'Luz branca 6500K' },
       { icon: 'bi-piggy-bank', label: 'Baixo consumo' },
@@ -136,7 +136,7 @@ const mockProducts = [
     estoqueLabel: 'Estoque local disponivel',
     entrega: '3 a 5 dias uteis',
     visual: 'pipe',
-    imagem: '../src/assets/images/produtos/hidraulicos/joelho90pvc.jpeg',
+    imagem: '../src/assets/images/produtos/hidraulicos/joelho90pvc.png',
     curatedHighlights: [
       { icon: 'bi-droplet-half', label: 'Encaixe preciso' },
       { icon: 'bi-shield-check', label: 'Alta resistencia' },
@@ -154,7 +154,7 @@ const mockProducts = [
     estoqueLabel: 'Disponivel para envio imediato',
     entrega: '2 a 4 dias uteis',
     visual: 'hinge',
-    imagem: '../src/assets/images/produtos/ferragens/dobradicasZincadas3.jpeg',
+    imagem: '../src/assets/images/produtos/ferragens/dobradicasZincadas3.png',
     curatedHighlights: [
       { icon: 'bi-gear', label: 'Abertura suave' },
       { icon: 'bi-brilliance', label: 'Acabamento zincado' },
@@ -172,7 +172,7 @@ const mockProducts = [
     estoqueLabel: 'Disponivel sob encomenda',
     entrega: '5 a 8 dias uteis',
     visual: 'inverter',
-    imagem: '../src/assets/images/produtos/energia-solar/microInversorSIW100G.jpg',
+    imagem: '../src/assets/images/produtos/energia-solar/microInversorSIW100G.png',
     curatedHighlights: [
       { icon: 'bi-lightning-charge', label: '1000W de saida' },
       { icon: 'bi-wifi', label: 'Monitoramento via Wi-Fi' },
@@ -190,7 +190,7 @@ const mockProducts = [
     estoqueLabel: 'Sob consulta para projeto',
     entrega: '5 a 9 dias uteis',
     visual: 'inverter',
-    imagem: '../src/assets/images/produtos/energia-solar/inversorOnGrid.jpeg',
+    imagem: '../src/assets/images/produtos/energia-solar/inversorOnGrid.png',
     curatedHighlights: [
       { icon: 'bi-cpu', label: 'Monitoramento inteligente' },
       { icon: 'bi-shield-lock', label: 'Protecao eletrica' },
